@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $idusuarios = $_GET['idusuarios'];
 
-    $query = "SELECT institucion, fecha, direccion, usuariod, correod, usuario, correo FROM citasmp INNER JOIN doctores ON citasmp.idcitasmp = doctores.iddoctores INNER JOIN usuarios ON citasmp.idcitasmp = usuarios.idusuarios WHERE usuarios_idusuarios='$idusuarios'";
+    $query = "SELECT institucion,fecha,direccion, usuariod, correod, usuario, correo FROM citasmp INNER JOIN doctores ON citasmp.idcitasmp INNER JOIN usuarios ON citasmp.idcitasmp WHERE usuarios_idusuarios='$idusuarios'";
     $result = $mysql->query($query);
 
     if ($mysql->affected_rows > 0) {
@@ -21,5 +21,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $result->close();
     $mysql->close();
 }
-
-?>
